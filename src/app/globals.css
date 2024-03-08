@@ -1,3 +1,21 @@
+:root {
+  --primary-color: #f7ffcd;
+  --secondary-color: #693e52;
+  --third-color: #badf96;
+  --fourth-color: #1c1124;
+  --primary-font-color: #1c1124;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #1c1124;
+    --secondary-color: #693e52;
+    --third-color: #badf96;
+    --fourth-color: #f7ffcd;
+    --primary-font-color: #f7ffcd;
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -8,4 +26,40 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  color: var(--primary-font-color);
+}
+
+#start-quiz-btn {
+  border-bottom: 8px solid var(--secondary-color);
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+
+#start-quiz-btn:hover {
+  animation-name: bounce;
+  -moz-animation-name: bounce;
+}
+
+@keyframes bounce {
+	0%, 100%, 20%, 50%, 80% {
+		-webkit-transform: translateY(0);
+		-ms-transform:     translateY(0);
+		transform:         translateY(0)
+	}
+	40% {
+		-webkit-transform: translateY(-30px);
+		-ms-transform:     translateY(-30px);
+		transform:         translateY(-30px)
+	}
+	60% {
+		-webkit-transform: translateY(-15px);
+		-ms-transform:     translateY(-15px);
+		transform:         translateY(-15px)
+	}
 }
