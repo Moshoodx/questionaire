@@ -3,20 +3,12 @@
 import {
   Box,
   Flex,
-  Avatar,
-  Text,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useColorModeValue,
   Stack,
-  useColorMode,
-  Center,
 } from '@chakra-ui/react'
-import { MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { Link } from '@chakra-ui/next-js'
+import { usePathname } from 'next/navigation'
 
 interface Props {
   children: React.ReactNode
@@ -42,13 +34,16 @@ const NavLink = (props: Props) => {
 }
 
 export function Navbar() {
-  const { colorMode, toggleColorMode } = useColorMode()
+  const pathname = usePathname();
+  const shouldBeAlternate = !['/'].includes(pathname);
+
+  const colorModeValue = shouldBeAlternate ? 'var(--primary-color)' : 'var(--fourth-color)';
 
   return (
     <>
-      <Box w={'100%'} color={'var(--primary-font-color)'} bg={useColorModeValue('var(--primary-color)', 'var(--primary-color)')} px={4}>
+      <Box w={'100%'} bg={colorModeValue} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box>Logo</Box>
+          <Link color={shouldBeAlternate ? 'var(--fourth-color)' : 'var(--primary-color)'} _hover={{ textDecoration: 'none' }} href={'/'} fontWeight={600} fontSize={24} letterSpacing={-1.3}>QUESTIONAIRE</Link>
 
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>
@@ -62,7 +57,7 @@ export function Navbar() {
                 direction={'row'}
                 spacing={6}
               >
-                <Button
+                {/* <Button
                   as={'a'}
                   display={{ base: 'none', md: 'inline-flex' }}
                   fontSize={'md'}
@@ -70,10 +65,12 @@ export function Navbar() {
                   color={'white'}
                   bg={'var(--secondary-color)'}
                   href={'#'}
-                  pt={1}
+                  _hover={{
+                    bg: 'var(--secondary-color)'
+                  }}
                 >
                   Continue Quiz
-                </Button>
+                </Button> */}
               </Stack>
             </Stack>
           </Flex>

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Providers } from './providers'
-import { primaryFont } from '@/fonts';
+import { Navbar } from "@/components";
 
+import 'animate.css';
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,8 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" style={{ colorScheme: 'light' }}>
-      <body className={primaryFont.className}>
-        <Providers>{children}</Providers>  
+      <body>
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>  
       </body>
     </html>
   );

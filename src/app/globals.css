@@ -6,7 +6,77 @@
   --primary-font-color: #1c1124;
 }
 
-@media (prefers-color-scheme: dark) {
+@font-face {
+  font-family: "FoundersGrotesk";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/FoundersGrotesk-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "FoundersGrotesk";
+  font-style: italic;
+  font-weight: 300;
+  src: url("/fonts/FoundersGrotesk-LightItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "FoundersGrotesk";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/FoundersGrotesk-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "FoundersGrotesk";
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/FoundersGrotesk-RegularItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "FoundersGrotesk";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/FoundersGrotesk-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "FoundersGrotesk";
+  font-style: italic;
+  font-weight: 500;
+  src: url("/fonts/FoundersGrotesk-MediumItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "FoundersGrotesk";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/FoundersGrotesk-SemiBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "FoundersGrotesk";
+  font-style: italic;
+  font-weight: 600;
+  src: url("/fonts/FoundersGrotesk-SemiBoldItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "FoundersGrotesk";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/FoundersGrotesk-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "FoundersGrotesk";
+  font-style: italic;
+  font-weight: 700;
+  src: url("/fonts/FoundersGrotesk-BoldItalic.otf") format("opentype");
+}
+
+/* @media (prefers-color-scheme: dark) {
   :root {
     --primary-color: #1c1124;
     --secondary-color: #693e52;
@@ -14,9 +84,10 @@
     --fourth-color: #f7ffcd;
     --primary-font-color: #f7ffcd;
   }
-}
+} */
 
 * {
+  font-family: FoundersGrotesk;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -41,12 +112,32 @@ body {
   -webkit-animation-iteration-count: infinite;
 }
 
-#start-quiz-btn:hover {
-  animation-name: bounce;
-  -moz-animation-name: bounce;
+.raised {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  /* animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite; */
 }
 
-@keyframes bounce {
+#start-quiz-btn:hover {
+  animation-name: bounces;
+  -moz-animation-name: bounces;
+}
+
+.__bounce:hover {
+  animation: headShake; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+}
+
+.chakra-checkbox__label {
+  padding-top: 9px;
+}
+
+@keyframes bounces {
 	0%, 100%, 20%, 50%, 80% {
 		-webkit-transform: translateY(0);
 		-ms-transform:     translateY(0);
