@@ -86,7 +86,6 @@ export function QuizFormComponent({ questionNo = 1, numberOfQuestions = 5, quest
             bg={opt.label === optionChosen?.label ? `var(--fourth-color)` : undefined}
             color={opt.label === optionChosen?.label ? `var(--third-color)` : `var(--secondary-color)`}
             onClick={() => setOptionChosen({ label: opt.label, score: opt.grade, pos: index })}
-            pt={1}
             _hover={{
               bg: undefined
             }}
