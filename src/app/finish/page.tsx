@@ -23,7 +23,7 @@ import { WelcomeSampleQuizComponent } from "@/components/pages/WelcomeSampleQuiz
 import { FirestoreDB } from "@/config";
 import { FormInputComponent } from "@/components/form/Input";
 
-export default function Welcome() {
+export default function Finish() {
   const router = useRouter();
   const search = useSearchParams();
 
@@ -45,7 +45,7 @@ export default function Welcome() {
     }
 
     return null;
-  }, []);
+  }, [feedbackKey]);
 
 
   async function onSubmit({ comment = null }: any) {
