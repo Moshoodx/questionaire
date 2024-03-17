@@ -67,7 +67,7 @@ export default function Welcome() {
   return (
     <>
       <VStack minH={'100dvh'} minWidth={'100dvw'} gap={0} bg={'var(--primary-color)'}>
-        <Box w={{ base: "90%", md: 0 }} mx={"auto"}>
+        <Box w={{ base: "90%", md: undefined }} mx={"auto"}>
           {view === 0 && <WelcomeTermsAndConditionsComponent
             proceedWithQuiz={() => setView(1)}
           />}

@@ -77,9 +77,9 @@ export default function Finish() {
       <VStack
         mt={24}
         maxW={"780px"}
-        w={{ base: "90%", md: 0 }} mx={"auto"}
+        w={{ base: "90%", md: undefined }} mx={"auto"}
       >
-        <Text fontSize={30} fontWeight={{ base: 500, sm: 600 }}>Feedback</Text>
+        <Text fontSize={30} fontWeight={{ base: 500, sm: 600 }}>Your result</Text>
         <Box
           color={'var(--primary-font-color)'}
           width={'100%'}
