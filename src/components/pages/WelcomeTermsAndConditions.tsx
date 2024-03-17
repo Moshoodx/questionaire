@@ -14,34 +14,34 @@ export function WelcomeTermsAndConditionsComponent(props: Props) {
     bg={'white'}
     height={'fit-content'}
     mt={24}
-    p={20}
+    p={{ base: 8, md: 20 }}
     border={`1px solid var(--third-color)`}
     rounded={8}
   >
     <Flex flexDirection={'column'} textAlign={'left'}>
-      <Text fontSize={24} fontWeight={{ base: 500, sm: 600 }}>
+      <Text fontSize={{ base: 20, md: 24 }} fontWeight={{ base: 500, sm: 600 }}>
         Read the instructions
       </Text>
-      <Text fontSize={18} fontWeight={300} maxW={800}>
+      <Text fontSize={{ base: 16, md: 18 }} fontWeight={300} maxW={800}>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima voluptatum sapiente consequatur cupiditate excepturi placeat harum fuga quia molestias vitae!
       </Text>
     </Flex>
 
-    <List spacing={3} my={8} fontSize={18}>
-      <ListItem>
-        <ListIcon minHeight={6} width={6} as={ExclamationCircleIcon} color={'var(--third-color)'} />
+    <List spacing={3} my={8} fontWeight={{ base: 400, md: 500 }}>
+      <ListItem fontSize={{ base: 14, md: 18 }}>
+        <ListIcon minHeight={{ base: 4, md: 6 }} width={{ base: 4, md: 6 }} as={ExclamationCircleIcon} color={'var(--third-color)'} />
         Lorem ipsum dolor sit amet, consectetur adipisicing elit
       </ListItem>
-      <ListItem>
-        <ListIcon minHeight={6} width={6} as={ExclamationCircleIcon} color={'var(--third-color)'} />
+      <ListItem fontSize={{ base: 14, md: 18 }}>
+        <ListIcon minHeight={{ base: 4, md: 6 }} width={{ base: 4, md: 6 }} as={ExclamationCircleIcon} color={'var(--third-color)'} />
         Assumenda, quia temporibus eveniet a libero incidunt suscipit
       </ListItem>
-      <ListItem>
-        <ListIcon minHeight={6} width={6} as={ExclamationCircleIcon} color={'var(--third-color)'} />
+      <ListItem fontSize={{ base: 14, md: 18 }}>
+        <ListIcon minHeight={{ base: 4, md: 6 }} width={{ base: 4, md: 6 }} as={ExclamationCircleIcon} color={'var(--third-color)'} />
         Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
       </ListItem>
-      <ListItem>
-        <ListIcon minHeight={6} width={6} as={ExclamationCircleIcon} color={'var(--third-color)'} />
+      <ListItem fontSize={{ base: 14, md: 18 }}>
+        <ListIcon minHeight={{ base: 4, md: 6 }} width={{ base: 4, md: 6 }} as={ExclamationCircleIcon} color={'var(--third-color)'} />
         Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
       </ListItem>
     </List>
@@ -50,7 +50,6 @@ export function WelcomeTermsAndConditionsComponent(props: Props) {
       <Text fontSize={14} fontWeight={300} opacity={0.7}>By the button below, you agree to the terms and conditions in filling out the questions present.</Text>
       <Button
         as={'a'}
-        display={{ base: 'none', md: 'inline-flex' }}
         fontSize={'md'}
         fontWeight={600}
         color={'white'}

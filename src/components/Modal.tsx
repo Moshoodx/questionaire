@@ -51,7 +51,7 @@ export function ModalComponent({
     <>
       <Modal {...args} isOpen={Boolean(isOpen)} onClose={() => handleOnClose?.()}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent w={{ base: "90%", md: "100%" }}>
           {<ModalHeader>
             {!hideModalHeader && <>
               {title !== undefined && <Text as="h3" color={args.titleColor} fontWeight={600} fontSize={{ base: 20, sm: 24 }}>

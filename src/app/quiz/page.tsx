@@ -156,7 +156,7 @@ export default function Quiz() {
 
   return (
     <>
-      <VStack minH={'100dvh'} minWidth={'100dvw'} gap={0} bg={'var(--primary-color)'}>
+      <VStack minH={'100dvh'} minWidth={'100dvw'} gap={0} px={{ base: 4, md: 0 }} bg={'var(--primary-color)'}>
         {quizIsValid && <QuizFormComponent
           collectResponse={collectResponse}
           isLoading={processing}

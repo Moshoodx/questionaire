@@ -76,8 +76,8 @@ export default function Finish() {
     <VStack minH={'100dvh'} minWidth={'100dvw'} gap={0} bg={'var(--primary-color)'}>
       <VStack
         mt={24}
-        maxW={'780px'}
-        mx={'auto'}
+        maxW={"780px"}
+        w={{ base: "90%", md: 0 }} mx={"auto"}
       >
         <Text fontSize={30} fontWeight={{ base: 500, sm: 600 }}>Feedback</Text>
         <Box
@@ -86,18 +86,18 @@ export default function Finish() {
           bg={'white'}
           height={'fit-content'}
           mt={8}
-          p={20}
+          p={{ base: 8, md: 20 }}
           border={`1px solid var(--third-color)`}
           rounded={8}
         >
           <Flex flexDirection={'column'} textAlign={'left'}>
-            <Text textAlign={"center"} fontSize={24} fontWeight={{ base: 500, sm: 600 }}>
+            <Text textAlign={{ base: "left", md: "center" }} fontSize={{ base: 16, md: 24 }} fontWeight={{ base: 500, sm: 600 }}>
               {data?.feedback || "No comment"}
             </Text>
           </Flex>
 
           <Text mt={8} fontSize={14} fontWeight={{ base: 500 }}>
-            Enter your comments below:
+            Enter your comment below:
           </Text>
 
           <HStack w={'100%'} h={'100%'} justifyContent={'start'} alignItems={'start'} spacing={3} width={"100%"}>
@@ -105,6 +105,10 @@ export default function Finish() {
               <VStack width={"100%"}>
                 <FormInputComponent hideLabel label="feedback" inputType="textarea" error={errors.comment}
                   textareaProps={{
+                    fontSize: {
+                      base: 14,
+                      md: 16,
+                    },
                     resize: "none",
                     placeholder: "You can leave comments on what we can do to improve your expereince while using this quiz board.",
                     ...register('comment', {
@@ -121,7 +125,6 @@ export default function Finish() {
 
                 <Button
                   isLoading={isSubmitting}
-                  display={{ base: 'none', md: 'inline-flex' }}
                   fontSize={'md'}
                   fontWeight={500}
                   color={'white'}

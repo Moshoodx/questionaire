@@ -29,8 +29,8 @@ export default function Home() {
     <>
       <VStack minHeight={'100dvh'} minWidth={'100dvw'} gap={0}>
         <VStack color={'var(--primary-color)'} width={'100%'} bg={'var(--fourth-color)'} height={'100dvh'}>
-          <Flex mt={48} flexDirection={'column'} maxW={'1160px'} textAlign={'center'}>
-            <Text fontSize={{ base: 38, sm: 60 }} fontWeight={{ base: 500, sm: 600 }}>
+          <Flex mt={48} flexDirection={'column'} maxW={'1160px'} textAlign={'center'} px={{ md: 0, base: 2}}>
+            <Text fontSize={{ base: 24, sm: 60 }} fontWeight={{ base: 500, sm: 600 }}>
               Improve Your Data Visualization Skills<br />Take the Quiz!
             </Text>
             <Text fontSize={{ base: 18, sm: 24 }} fontWeight={100} mt={8}>
@@ -41,9 +41,9 @@ export default function Home() {
               w={'fit-content'}
               mx="auto"
               mt={24}
-              fontSize={24}
-              px={16}
-              py={8}
+              fontSize={{ base: 16, sm: 24}}
+              px={{ base: 8, sm: 16 }}
+              py={{ md: 8, base: 8 }}
               borderRadius={16}
               id="start-quiz-btn"
               onClick={() => toggleRegisterationModal(true)}
@@ -55,6 +55,7 @@ export default function Home() {
       </VStack>
 
       <ModalComponent
+        isCentered
         size={"lg"}
         isOpen={showRegisterationModal}
         title="Start Quiz"

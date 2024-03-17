@@ -32,7 +32,7 @@ export function QuizFormComponent({ questionNo = 1, numberOfQuestions = 5, quest
   const hasImageOptions = React.useMemo(() => question?.options.some((opt) => opt.displayType === "img"), [question]);
 
   return <VStack
-      mt={24}
+      my={24}
       maxW={'600px'}
       mx={'auto'}
       w={"100%"}
@@ -44,11 +44,11 @@ export function QuizFormComponent({ questionNo = 1, numberOfQuestions = 5, quest
       bg={'white'}
       pt={5}
       pb={7}
-      px={20}
+      px={{ base: 8, md: 20 }}
       rounded={8}
     >
-      <HStack>
-        <Text fontSize={20} fontWeight={500}>Question {questionNo} of {numberOfQuestions}</Text>
+      <HStack w={"100%"}>
+        <Text fontSize={{ base: 16, md: 20 }} fontWeight={500}>Question {questionNo} of {numberOfQuestions}</Text>
         <Spacer />
         <HStack>
           <IconButton onClick={() => props.goPrev?.()} icon={<ArrowLeftIcon stroke="0.5" height={10} />} size={'xs'} aria-label="prev" />
@@ -63,7 +63,8 @@ export function QuizFormComponent({ questionNo = 1, numberOfQuestions = 5, quest
       bg={'white'}
       height={'fit-content'}
       mt={8}
-      p={20}
+      // p={20}
+      p={{ base: 8, md: 20 }}
       border={`1px solid var(--third-color)`}
       rounded={8}
     >
@@ -102,7 +103,6 @@ export function QuizFormComponent({ questionNo = 1, numberOfQuestions = 5, quest
         <Tooltip hasArrow label={optionChosenInvalid ? 'Select an option to proceed' : undefined} borderRadius={4} pt={2}>
           <Button
             isLoading={props.isLoading}
-            display={{ base: 'none', md: 'inline-flex' }}
             fontSize={'md'}
             fontWeight={600}
             color={'white'}

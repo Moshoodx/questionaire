@@ -2,6 +2,7 @@
 
 import React from "react";
 import {
+  Box,
   VStack,
   useToast,
 } from "@chakra-ui/react";
@@ -66,13 +67,15 @@ export default function Welcome() {
   return (
     <>
       <VStack minH={'100dvh'} minWidth={'100dvw'} gap={0} bg={'var(--primary-color)'}>
-        {view === 0 && <WelcomeTermsAndConditionsComponent
-          proceedWithQuiz={() => setView(1)}
-        />}
-        {view === 1 && <WelcomeSampleQuizComponent
-          proceedWithQuiz={beginQuiz}
-          isLoading={processing}
-        />}
+        <Box w={{ base: "90%", md: 0 }} mx={"auto"}>
+          {view === 0 && <WelcomeTermsAndConditionsComponent
+            proceedWithQuiz={() => setView(1)}
+          />}
+          {view === 1 && <WelcomeSampleQuizComponent
+            proceedWithQuiz={beginQuiz}
+            isLoading={processing}
+          />}
+        </Box>
       </VStack>
     </>
   );
