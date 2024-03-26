@@ -7,7 +7,7 @@ import 'animate.css';
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Questionaire App",
+  title: "VizQ App",
   description: "Virtual App for improving your Data Visualization skills",
 };
 
