@@ -54,30 +54,31 @@ export function ModalComponent({
         <ModalContent w={{ base: "90%", md: "100%" }}>
           {<ModalHeader>
             {!hideModalHeader && <>
-              {title !== undefined && <Text as="h3" color={args.titleColor} fontWeight={600} fontSize={{ base: 20, sm: 24 }}>
+              {title !== undefined && <Text as="h3" className='font-inter' color={args.titleColor} fontWeight={600} fontSize={{ base: 20, sm: 24 }}>
                 {title}
               </Text>}
               {description !== undefined && (
-                <Text as={'h6'} fontSize={'md'} fontWeight={400} opacity={1}>
+                <Text as={'h6'} fontSize={'sm'} fontWeight={400} opacity={1}>
                   {description}
                 </Text>
               )}
             </>}
           </ModalHeader>}
-          {!hideModalHeader && <ModalCloseButton onClick={handleOnClose || args.onClose} _hover={{ bg: `var(--primary-color)` }} />}
+          {!hideModalHeader && <ModalCloseButton onClick={handleOnClose || args.onClose} _hover={{ bg: `var(--fourth-color)` }} />}
           <ModalBody>{children}</ModalBody>
 
           {showFooter && <ModalFooter>
             <Button
+              className='font-inter'
               isLoading={isProcessing}
-              bg={`var(--secondary-color)`}
-              color={`var(--primary-color)`}
+              bg={`var(--primary-color)`}
+              color={`white`}
               mr={3}
               onClick={proceed}
-              fontSize={'md'}
+              fontSize={'sm'}
               fontWeight={500}
               _hover={{
-                bg: `var(--fourth-color)`
+                bg: undefined
               }}
               paddingTop={isProcessing ? undefined : undefined}
               rightIcon={args.proceedRightButtonIcon}
@@ -88,11 +89,12 @@ export function ModalComponent({
             </Button>
             {cancelButton !== null && <Button
               onClick={handleOnClose || args.onClose}
+              className='font-inter'
               variant="ghost"
-              fontSize={'md'}
+              fontSize={'sm'}
               fontWeight={500}
-              color={`var(--primary-font-color)`}
-              bg={`var(--primary-color)`}
+              color={`white`}
+              bg={`red`}
               _hover={{
               }}
               disabled={buttonDisabled}

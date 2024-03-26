@@ -35,15 +35,12 @@ const NavLink = (props: Props) => {
 
 export function Navbar() {
   const pathname = usePathname();
-  const shouldBeAlternate = !['/'].includes(pathname);
-
-  const colorModeValue = shouldBeAlternate ? 'var(--primary-color)' : 'var(--fourth-color)';
 
   return (
     <>
-      <Box w={'100%'} bg={colorModeValue} px={4}>
+      <Box w={'100%'} bg={'var(--fourth-color)'} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Link color={shouldBeAlternate ? 'var(--fourth-color)' : 'var(--primary-color)'} _hover={{ textDecoration: 'none' }} href={'/'} fontWeight={600} fontSize={24} letterSpacing={-1.3}>QUESTIONAIRE</Link>
+          <Link className='font-inter' color={'var(--primary-color)'} _hover={{ textDecoration: 'none' }} href={'/'} fontWeight={800} fontSize={24} letterSpacing={-1.3}>VizIQ</Link>
 
           <Flex alignItems={'center'}>
             <Stack direction={'row'} spacing={7}>

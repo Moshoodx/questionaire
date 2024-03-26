@@ -12,9 +12,10 @@ import { doc, setDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import { FirestoreDB } from "@/config";
 import { QuizFormComponent } from "@/components/pages/QuizForm";
-import { QUESTIONS } from "@/data/questions";
+import { QUESTIONS as $QUESTIONS } from "@/data/questions";
 import { ModalComponent } from "@/components";
 import { CLASSES } from "@/data/class";
+import { shuffleArray } from "@/utils/array";
 
 type Answer = { label: string; score: number, pos: number };
 
@@ -22,30 +23,32 @@ export default function Quiz() {
   const router = useRouter();
   const toast = useToast();
 
+  const QUESTIONS = React.useMemo(() => {
+    return shuffleArray($QUESTIONS).slice(0, 10)
+  }, []);
+
   const [processing, setProcessing] = React.useState(false);
   const [feedbackModal, setShowFeedbackModal] = React.useState(false);
   const [questionIndex, setQuestionIndex] = React.useState(0);
   const [score, setScore] = React.useState<Array<Answer | undefined>>(Array.from({ length: QUESTIONS.length }).map(() => undefined));
   const [feedBackStatus, setFeedbackStatus] = React.useState<{ feedback: string | undefined; isCorrect: boolean; }>();
 
-  function quizFinished() {
-
-  }
-
   function collectResponse(data: Answer) {
-    setFeedbackStatus((state) => {
-      const question = QUESTIONS[questionIndex];
-      const { feedback } = question?.options?.[data.pos] || {};
+    if (!score[questionIndex]) {
+      setFeedbackStatus(() => {
+        const question = QUESTIONS[questionIndex];
+        const { feedback } = question?.options?.[data.pos] || {};
 
-      return { isCorrect: question.score === data.score, feedback };
-    })
+        return { isCorrect: question.score === data.score, feedback };
+      })
 
-    setScore((state) => {
-      const newState = [...state];
-      newState[questionIndex] = data;
+      setScore((state) => {
+        const newState = [...state];
+        newState[questionIndex] = data;
 
-      return newState;
-    });
+        return newState;
+      });
+    }
 
     setShowFeedbackModal(true);
   }
@@ -101,8 +104,11 @@ export default function Quiz() {
         return;
       }
 
-      await setDoc(doc(FirestoreDB, "results", id), { score, group: userGroup, key: email, actualScore, totalScore  });
-      localStorage.setItem("feedback-" + userClass?.key, JSON.stringify(userClass));
+      await setDoc(doc(FirestoreDB, "results", id), { score, group: userGroup, key: email, actualScore, totalScore });
+
+      if (userClass?.key) {
+        localStorage.setItem("feedback-" + userClass?.key, JSON.stringify({ ...userClass, score, totalScore }));
+      }
 
       router.replace(`/finish?id=${id}&groupKey=${userClass?.key}`);
       return;
@@ -156,7 +162,7 @@ export default function Quiz() {
 
   return (
     <>
-      <VStack minH={'100dvh'} minWidth={'100dvw'} gap={0} px={{ base: 4, md: 0 }} bg={'var(--primary-color)'}>
+      <VStack minH={'100dvh'} minWidth={'100dvw'} gap={0} px={{ base: 4, md: 0 }} bg={'var(--fourth-color)'}>
         {quizIsValid && <QuizFormComponent
           collectResponse={collectResponse}
           isLoading={processing}
@@ -178,6 +184,7 @@ export default function Quiz() {
         cancelButton={null}
         hideModalHeader
         isProcessing={processing}
+        isCentered
       >
         <VStack spacing={4}>
           <Box>

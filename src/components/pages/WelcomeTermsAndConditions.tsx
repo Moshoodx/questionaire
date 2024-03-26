@@ -15,50 +15,33 @@ export function WelcomeTermsAndConditionsComponent(props: Props) {
     height={'fit-content'}
     mt={24}
     p={{ base: 8, md: 20 }}
-    border={`1px solid var(--third-color)`}
+    border={`1px solid var(--fourth-color)`}
     rounded={8}
   >
-    <Flex flexDirection={'column'} textAlign={'left'}>
-      <Text fontSize={{ base: 20, md: 24 }} fontWeight={{ base: 500, sm: 600 }}>
+    <Flex flexDirection={'column'} textAlign={'center'} mx={"auto"} w="fit-content">
+      <Text className="font-inter" fontSize={{ base: 20, md: 24 }} fontWeight={{ base: 500, sm: 600 }}>
         Read the instructions
       </Text>
-      <Text fontSize={{ base: 16, md: 18 }} fontWeight={300} maxW={800}>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima voluptatum sapiente consequatur cupiditate excepturi placeat harum fuga quia molestias vitae!
+      <Text fontSize={{ base: 16, }} fontWeight={300} maxW={800} mt={4}>
+        This Quiz test your knowledge on s selecting chart, and get feedback as  guidelines insight into how to choose one chart over another.
       </Text>
     </Flex>
 
-    <List spacing={3} my={8} fontWeight={{ base: 400, md: 500 }}>
-      <ListItem fontSize={{ base: 14, md: 18 }}>
-        <ListIcon minHeight={{ base: 4, md: 6 }} width={{ base: 4, md: 6 }} as={ExclamationCircleIcon} color={'var(--third-color)'} />
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit
-      </ListItem>
-      <ListItem fontSize={{ base: 14, md: 18 }}>
-        <ListIcon minHeight={{ base: 4, md: 6 }} width={{ base: 4, md: 6 }} as={ExclamationCircleIcon} color={'var(--third-color)'} />
-        Assumenda, quia temporibus eveniet a libero incidunt suscipit
-      </ListItem>
-      <ListItem fontSize={{ base: 14, md: 18 }}>
-        <ListIcon minHeight={{ base: 4, md: 6 }} width={{ base: 4, md: 6 }} as={ExclamationCircleIcon} color={'var(--third-color)'} />
-        Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-      </ListItem>
-      <ListItem fontSize={{ base: 14, md: 18 }}>
-        <ListIcon minHeight={{ base: 4, md: 6 }} width={{ base: 4, md: 6 }} as={ExclamationCircleIcon} color={'var(--third-color)'} />
-        Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
-      </ListItem>
-    </List>
-
-    <VStack mt={8} w={'100%'} h={'100%'} justifyContent={'start'} alignItems={'start'} spacing={3}>
-      <Text fontSize={14} fontWeight={300} opacity={0.7}>By the button below, you agree to the terms and conditions in filling out the questions present.</Text>
+    <VStack mt={16} w={'100%'} h={'100%'} justifyContent={'center'} alignItems={'center'} spacing={3}>
       <Button
+        className="font-inter"
         as={'a'}
         fontSize={'md'}
         fontWeight={600}
         color={'white'}
-        bg={'var(--secondary-color)'}
+        bg={'var(--primary-color)'}
         href={'#'}
         _hover={{
-          bg: 'var(--secondary-color)'
+          bg: 'var(--primary-color)'
         }}
         onClick={props.proceedWithQuiz}
+        px={16}
+        py={8}
       >
         Begin Quiz
       </Button>

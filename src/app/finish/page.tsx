@@ -72,14 +72,13 @@ export default function Finish() {
   }
 
   return (
-
-    <VStack minH={'100dvh'} minWidth={'100dvw'} gap={0} bg={'var(--primary-color)'}>
+    <VStack minH={'100dvh'} minWidth={'100dvw'} gap={0} bg={'var(--fourth-color)'}>
       <VStack
         mt={24}
         maxW={"780px"}
         w={{ base: "90%", md: undefined }} mx={"auto"}
       >
-        <Text fontSize={30} fontWeight={{ base: 500, sm: 600 }}>Your result</Text>
+        <Text fontSize={30} fontWeight={{ base: 500, sm: 600 }}>Result</Text>
         <Box
           color={'var(--primary-font-color)'}
           width={'100%'}
@@ -87,17 +86,21 @@ export default function Finish() {
           height={'fit-content'}
           mt={8}
           p={{ base: 8, md: 20 }}
-          border={`1px solid var(--third-color)`}
+          border={`1px solid var(--fourth-color)`}
           rounded={8}
         >
           <Flex flexDirection={'column'} textAlign={'left'}>
-            <Text textAlign={{ base: "left", md: "center" }} fontSize={{ base: 16, md: 24 }} fontWeight={{ base: 500, sm: 600 }}>
+            {data?.totalScore && <Text color={"var(--primary-color)"} textAlign={{ base: "left", md: "center" }} fontSize={{ base: 16, md: 24 }} fontWeight={{ base: 500, sm: 600 }}>You scored <strong>{data.totalScore}/10</strong></Text>}
+            <Text mt="4" textAlign={{ base: "left", md: "center" }} fontSize={{ base: 14, md: 20 }} fontWeight={{ base: 500 }}>
               {data?.feedback || "No comment"}
             </Text>
+
           </Flex>
 
+          <Divider my={8} />
+
           <Text mt={8} fontSize={14} fontWeight={{ base: 500 }}>
-            Enter your comment below:
+            Drop your feedback below:
           </Text>
 
           <HStack w={'100%'} h={'100%'} justifyContent={'start'} alignItems={'start'} spacing={3} width={"100%"}>
@@ -105,9 +108,9 @@ export default function Finish() {
               <VStack width={"100%"}>
                 <FormInputComponent hideLabel label="feedback" inputType="textarea" error={errors.comment}
                   textareaProps={{
+                    fontWeight: 400,
                     fontSize: {
                       base: 14,
-                      md: 16,
                     },
                     resize: "none",
                     placeholder: "You can leave comments on what we can do to improve your expereince while using this quiz board.",
@@ -126,9 +129,9 @@ export default function Finish() {
                 <Button
                   isLoading={isSubmitting}
                   fontSize={'md'}
-                  fontWeight={500}
-                  color={'white'}
-                  bg={'var(--secondary-color)'}
+                  fontWeight={600}
+                  color={'var(--primary-color)'}
+                  bg={'var(--fourth-color)'}
                   cursor={'pointer'}
                   mt={4}
                   _hover={{

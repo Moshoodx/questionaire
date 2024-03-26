@@ -21,10 +21,10 @@ export function WelcomeSampleQuizComponent(props: Props) {
 
   return <VStack
       mt={24}
-      maxW={'780px'}
+      maxW={'1440px'}
       mx={'auto'}
   >
-    <Text fontSize={30} fontWeight={{ base: 500, sm: 600 }}>Quick Pre-Quiz Check-In</Text>
+    <Text fontSize={{ sm: 16, base: 24, md: 30 }} fontWeight={{ base: 500, sm: 600 }} textAlign={"center"}>Quick Pre-Quiz Check-In</Text>
     <Box
       color={'var(--primary-font-color)'}
       width={'100%'}
@@ -32,35 +32,36 @@ export function WelcomeSampleQuizComponent(props: Props) {
       height={'fit-content'}
       mt={{ base: 4, md: 8 }}
       p={{ base: 8, md: 20 }}
-      border={`1px solid var(--third-color)`}
+      border={`1px solid var(--fourth-color)`}
       rounded={8}
     >
       <Flex flexDirection={'column'} textAlign={'left'}>
         <Text fontSize={{ base: 18, md: 24 }} fontWeight={{ base: 500, sm: 600 }}>
           How confident are you in your ability to select effective data visualizations?
         </Text>
-        <Text fontSize={{ base: 16, md: 20 }} fontWeight={300} maxW={800}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima voluptatum sapiente consequatur cupiditate excepturi placeat harum fuga quia molestias vitae!
-        </Text>
       </Flex>
 
-      <Text mt={8} fontSize={{ base: 16, md: 20 }} fontWeight={{ base: 500, sm: 600 }}>
+      <Text mt={8} fontSize={{ base: 14, md: 20 }} fontWeight={{ base: 400, md: 500 }}>
         Choose from the options below:
       </Text>
 
-      <List spacing={3} my={8} fontSize={18}>
-        {options.map((option, index) => <ListItem key={index}>
+      <Flex gap={{ sm: 2, base: 2, md: 8, lg: 10 }} my={8} height={{ base: 20, md: 40 }} width={"100%"}>
+        {options.map((option, index) => <Box w={"100%"} key={index}>
           <Button
-            bg={option.name === optionChosen?.name ? `var(--fourth-color)` : undefined}
-            color={option.name === optionChosen?.name ? `var(--third-color)` : `var(--secondary-color)`}
+            bg={option.name === optionChosen?.name ? `var(--fourth-color)` : `gray.100`}
+            border={option.name === optionChosen?.name ? `2px solid var(--fourth-color)` : `2px solid #EDF2F7`}
+            color={option.name === optionChosen?.name ? `var(--primary-color)` : `gray.600`}
             onClick={() => setOptionChosen(option)}
             _hover={{
               bg: undefined
             }}
-            fontSize={{ base: 14, md: 16 }}
-          >{option.name}</Button>
-        </ListItem>)}
-      </List>
+            fontSize={{ base: 14, md: 28 }}
+            height={"100%"}
+            w={{ sm: "80%", base: "95%", md: "100%" }}
+            borderRadius={{ sm: 8, base: 8, md: 36 }}
+          >{option.value}</Button>
+        </Box>)}
+      </Flex>
 
       <Divider />
 
@@ -69,10 +70,10 @@ export function WelcomeSampleQuizComponent(props: Props) {
           <Button
             isLoading={props.isLoading}
             display={{ md: 'inline-flex' }}
-            fontSize={'md'}
-            fontWeight={600}
+            fontSize={{ base: 14, md: 20 }}
+            fontWeight={{ base: 500, md: 600 }}
             color={'white'}
-            bg={optionChosen ? 'var(--secondary-color)' : 'grey'}
+            bg={optionChosen ? 'var(--primary-color)' : 'grey'}
             disabled={optionChosenInvalid}
             cursor={optionChosenInvalid ? 'not-allowed' : 'pointer'}
             _hover={{
@@ -87,12 +88,11 @@ export function WelcomeSampleQuizComponent(props: Props) {
           </Button>
         </Tooltip>
         {!optionChosenInvalid && <Button
-          display={{ base: 'none', md: 'inline-flex' }}
+          fontSize={{ base: 14, md: 20 }}
+          fontWeight={{ base: 500, md: 600 }}
           variant="ghost"
-          fontSize={'md'}
-          fontWeight={600}
-          color={`var(--primary-font-color)`}
-          bg={`var(--primary-color)`}
+          color={`red.600`}
+          bg={`red.100`}
           _hover={{
           }}
           borderRadius={8}
