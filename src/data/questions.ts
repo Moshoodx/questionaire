@@ -77,7 +77,7 @@ export const QUESTIONS = [
         label: 'A',
         feedback: `NOISE & DISTRACTIONS Using unnecessary effects like 3D formats or background images.`,
         grade: 1,
-        display: `/img/quiz/image26.png`,
+        display: `/img/quiz/image29.png`,
         displayType: 'img',
       },
       {
