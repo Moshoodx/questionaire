@@ -92,7 +92,7 @@ export default function Finish() {
           <Flex flexDirection={'column'} textAlign={'left'}>
             {data?.totalScore && <Text color={"var(--primary-color)"} textAlign={{ base: "left", md: "center" }} fontSize={{ base: 16, md: 24 }} fontWeight={{ base: 500, sm: 600 }}>You scored <strong>{data.totalScore}/10</strong></Text>}
             <Text mt="4" textAlign={{ base: "left", md: "center" }} fontSize={{ base: 14, md: 20 }} fontWeight={{ base: 500 }}>
-              {data?.feedback || "No comment"}
+              {data?.title || "No comment"}
             </Text>
 
           </Flex>
