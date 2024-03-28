@@ -49,20 +49,23 @@ export default function Home() {
                 >
                   Start Quiz
                 </Button>
-                <Button
+                <Link
+                  href="https://docs.google.com/document/d/1wgxOkgj791wMUgFVzrlszDnSNbHGCU85-KKZ81MBLI8/edit"
                   w={'fit-content'}
                   mt={16}
                   fontSize={{ base: 14, sm: 24 }}
                   px={{ base: 8, sm: 12 }}
                   py={{ sm: 8, base: 4 }}
                   className="inter-bold"
-                  onClick={() => router.push('/welcome')}
                   borderRadius={0}
                   bg={"transparent"}
                   color={"#000000"}
+                  _hover={{
+                    bg: undefined,
+                  }}
                 >
                   Learn More -
-                </Button>
+                </Link>
               </HStack>
             </Flex>
 
