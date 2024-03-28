@@ -76,7 +76,7 @@ export const QUESTIONS = [
       {
         label: 'A',
         feedback: `NOISE & DISTRACTIONS Using unnecessary effects like 3D formats or background images.`,
-        grade: 1,
+        grade: 0,
         display: `/img/quiz/image29.png`,
         displayType: 'img',
       },
@@ -293,7 +293,7 @@ export const QUESTIONS = [
       {
         label: 'B',
         feedback: `Use labels along with icons to clearly represent key information.`,
-        grade: 0,
+        grade: 1,
         display: `/img/quiz/image41.png`,
         displayType: 'img',
       },

@@ -100,7 +100,7 @@ export default function Home() {
               <Image width={405} height={207} src={"/img/w-2.jpeg"} alt={"VizQ"} />
               <Text mt={2} fontWeight={600} fontSize={{ base: 16, sm: 24 }}>Viz Review App</Text>
               <Text fontWeight={400} fontSize={{ base: 14, sm: 20 }}>
-                Let AI review your Viz333
+                Let AI review your Viz
               </Text>
               <Text mt={4} fontWeight={400} fontSize={{ base: 12, sm: 17 }} fontStyle={"italic"}>Creating effective data visualizations is crucial. Al tools can offer feedback on clarity, coherence, color choices, and overall impact, improving communication and presentation effectiveness.</Text>
               <Link
@@ -127,7 +127,7 @@ export default function Home() {
                 Use a rubric to assess visualization effectiveness by evaluating data accuracy, visual design, and user experience. This structured approach ensures the visualization meets goals, effectively communicates information, and is supported by research for reliability.
               </Text>
               <Link
-                href="/"
+                href="https://drive.google.com/drive/folders/1xXPnPyq_I57HVngBJaY3l9458WK9BiTm?usp=sharing"
                 target="_blank"
                 display={"block"}
                 w={'fit-content'}
