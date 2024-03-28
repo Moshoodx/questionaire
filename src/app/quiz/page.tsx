@@ -93,6 +93,13 @@ export default function Quiz() {
       const totalScore = Math.round(actualScore / totalExpectedScore * 10);
       const userGroup = getUserGroup(totalScore);
 
+      if (userGroup === undefined) {
+        alert("Please restart quiz");
+        localStorage.clear();
+        window.location.href = "/";
+        return;
+      }
+
       const id = nanoid();
       const userClass = CLASSES.find((cl) => cl.term === userGroup);
 
@@ -129,14 +136,14 @@ export default function Quiz() {
     if (score === 7) {
       return "hero";
     }
-    if (score <= 8) {
+    if (score <= 9) {
       return "legend";
     }
     if (score === 10) {
       return "grandmaster";
     }
 
-    return "newbie";
+    return undefined;
   }
 
   function goNext(index?: number) {
