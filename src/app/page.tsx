@@ -107,7 +107,7 @@ export default function Home() {
               </Text>
               <Text mt={4} fontWeight={400} fontSize={{ base: 12, sm: 17 }} fontStyle={"italic"}>Creating effective data visualizations is crucial. Al tools can offer feedback on clarity, coherence, color choices, and overall impact, improving communication and presentation effectiveness.</Text>
               <Link
-                href="https://chat.openai.com/g/g-WCvnPr1wW-vizcritique-pro"
+                href="https://chat.openai.com/g/g-VmzqCEple-dataviz-critique-ai"
                 display={"block"}
                 w={'fit-content'}
                 bg={"var(--primary-color)"}
@@ -125,7 +125,7 @@ export default function Home() {
             <Box flex={1}>
               <Image width={405} height={207} src={"/img/w-3.jpeg"} alt={"VizQ"} />
               <Text mt={2} fontWeight={600} fontSize={{ base: 16, sm: 24 }}>Download Viz guidelines</Text>
-              <Text fontWeight={400} fontSize={{ base: 14, sm: 20 }}                              >Use Rubric to Assess your Viz Effectivenessn</Text>
+              <Text fontWeight={400} fontSize={{ base: 14, sm: 20 }}                              >Use Rubric to Assess your Viz Effectiveness</Text>
               <Text mt={4} fontWeight={400} fontSize={{ base: 12, sm: 17 }} fontStyle={"italic"}>
                 Use a rubric to assess visualization effectiveness by evaluating data accuracy, visual design, and user experience. This structured approach ensures the visualization meets goals, effectively communicates information, and is supported by research for reliability.
               </Text>
